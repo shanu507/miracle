@@ -1,0 +1,35 @@
+<div class="container">
+<h2>Create an Elf account</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+    <div class="form-group">
+        <label>Enter your full Name</label>
+        <input type="text" formControlName="name" class="form-control" placeholder="name" />
+        <span *ngIf="registerForm.get('name').touched && registerForm.get('name').invalid">
+        <span *ngIf="registerForm.get('name').errors.required">Name is required</span>
+        </span>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" formControlName="email" class="form-control" placeholder="you@gmail.com" />
+        <span *ngIf="registerForm.get('email').touched && registerForm.get('email').invalid">
+            <span *ngIf="registerForm.get('email').errors.required">Name is required</span>
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" formControlName="password" class="form-control" placeholder="Enter 6 characters or more"  />
+        <span *ngIf="registerForm.get('password').touched && registerForm.get('password').invalid">
+            <span *ngIf="registerForm.get('password').errors.required">Name is required</span>
+        </span>
+    </div>
+    <div>
+        <mat-checkbox>check</mat-checkbox>
+    </div>
+    <div class="form-group">
+        <button [disabled]="!registerForm.valid" value="on Submit" class="btn btn-primary">Register</button>
+        <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+    </div>
+
+</form>
+</div>

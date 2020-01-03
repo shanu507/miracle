@@ -1,0 +1,38 @@
+<div class="container">
+        <h2>Create a family account</h2>
+        <form [formGroup]="familySignup" (ngSubmit)="onsubmit(familySignup)">
+            <div class="form-group">
+                <label>Enter your full Name</label>
+                <input type="text" formControlName="name" class="form-control" placeholder="name" />
+                <span *ngIf="familySignup.get('name').touched && familySignup.get('name').invalid">
+                <span *ngIf="familySignup.get('name').errors.required">Name is required</span>
+                </span>
+            </div>
+        
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" formControlName="email" class="form-control" placeholder="you@gmail.com" />
+                <span *ngIf="familySignup.get('email').touched && familySignup.get('email').invalid">
+                    <span *ngIf="familySignup.get('email').errors.required">Name is required</span>
+                </span>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Enter 6 characters or more"  />
+                <span *ngIf="familySignup.get('password').touched && familySignup.get('password').invalid">
+                    <span *ngIf="familySignup.get('password').errors.required">Name is required</span>
+                </span>
+            </div>
+            <div>
+                 <input type="checkbox" formControlName="checked" />
+                 <span *ngIf="familySignup.get('checked').touched && familySignup.get('checked').invalid">
+                     <span *ngIf="familySignup.get('checked').errors.required">checkbox is required</span>
+                 </span>
+            </div>
+            <div class="form-group">
+                <button id="work" [disabled]="!familySignup.valid" value="on Submit" class="btn btn-danger">Register</button>
+                <a [routerLink]="['/login']" class="btn btn-link">Cancel</a>
+            </div>
+        
+        </form>
+        </div>
